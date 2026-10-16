@@ -5,6 +5,6 @@ create table product(<br>
     id int AUTO_INCREMENT PRIMARY key, -- 숫자형 <br>
     product_name varchar(30) not null, -- 문자형 필수 <br>
     price int not null,<br>
-    creatd_at timestamp default CURRENT_TIMESTAMP
+    created_at timestamp default CURRENT_TIMESTAMP
     <br>
 );
