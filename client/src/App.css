@@ -1,0 +1,160 @@
+/* Header 스타일 */
+.header {
+    background-color: #333;
+    padding: 15px;
+}
+.header a {
+    color: #ececdd;
+    margin: 0px 16px;
+    text-decoration: none;
+}
+.header-user {
+    display: inline-flex;
+    text-align: center;
+    gap: 16px;
+    color: #ececdd;
+}
+.logout-btn {
+    padding: 6px 12px;
+    border: 1px solid #f7ec53;
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #ececdd;
+}
+
+/* 마우스를 올린 상태 */
+.header a:hover {
+    color: #f7ec53;
+}
+
+/* Main 스타일 */
+.main img {
+    margin-top: 20px;
+}
+
+/* 상품 목록 스타일 */
+.product-list table {
+    width: 60%;
+    margin: 20px auto;
+    border: 1px solid #a7a7a7;
+    border-collapse: collapse;
+}
+.product-list table thead {
+    background-color: #eee;
+}
+.product-list table th, td {
+    border: 1px solid #a7a7a7;
+    padding: 6px;
+}
+.product-list .btn-add {
+    text-align: right;
+    margin-right: 20%;
+}
+.product-list .btn-add button {
+    padding: 8px 16px;
+}
+
+/* 상품 상세페이지 스타일 */
+.product-info .detail {
+    width: 40%;
+    margin: 20px auto;
+    background-color: #fffce4;
+    padding: 20px;
+    border-radius: 8px;
+}
+.product-info .detail p {
+    margin: 16px;
+}
+.product-info button {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* 상품 등록 스타일 */
+.add-product form {
+    width: 30%;
+    margin: 20px auto;
+}
+.add-product form label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+.add-product form input, .add-product form textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 16px;
+}
+.add-product form textarea {
+    resize: vertical; /* 크기조절방향(수직) */
+}
+.add-product form button {
+    padding: 8px 12px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+/* 로그인 스타일 */
+.sign-in form {
+    width: 30%;
+    margin: 20px auto;
+    text-align: left;
+}
+.sign-in input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+.sign-in form button {
+    width: 100%;
+    padding: 8px 12px;
+    margin-left: 3%;
+}
+
+/* 회원가입 스타일 */
+.sign-up form {
+    width: 40%;
+    margin: 20px auto;
+    text-align: left;
+}
+.sign-up form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.sign-up form input,
+.sign-up form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+.sign-up form select {
+    width: 160px;
+    padding: 10px 12px;
+}
+.gender-title {
+    margin: 8px 0px;
+}
+.gender-option {
+    display: flex;
+    gap: 24px;
+}
+.gender-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+.gender-option input[type="radio"] {
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+.sign-up form textarea{
+    resize: vertical;
+}
+.sign-up form button {
+    padding: 8px 12px;
+    margin: 5px;
+}
