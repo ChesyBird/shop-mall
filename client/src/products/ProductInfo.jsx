@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/api";
 import { useEffect, useState } from "react";
+import dayjs from 'dayjs';
 
 const ProductInfo = () => {
     // url의 경로를 추출
@@ -30,7 +31,7 @@ const ProductInfo = () => {
                 <div className="detail">
                     <p>상품 이름 : {product.product_name}</p>
                     <p>상품 가격 : {product.price}원</p>
-                    <p>상품 등록일 : {product.created_at}</p>
+                    <p>상품 등록일 : {dayjs(product.created_at).format("YYYY-MM-DD HH:mm:ss")}</p>
                 </div>
             )}
             
