@@ -31,6 +31,7 @@ const ProductInfo = () => {
                 <div className="detail">
                     <p>상품 이름 : {product.product_name}</p>
                     <p>상품 가격 : {product.price}원</p>
+                    <p>상품 설명 : {product.description}</p>
                     <p>상품 등록일 : {dayjs(product.created_at).format("YYYY-MM-DD HH:mm:ss")}</p>
                 </div>
             )}

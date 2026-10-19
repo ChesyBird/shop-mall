@@ -7,6 +7,7 @@ const Header = ()=>{
             <nav>
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/products'>상품 목록</NavLink>
+                <NavLink to='/products/new'>상품 등록</NavLink>
             </nav>
         </header>
     )

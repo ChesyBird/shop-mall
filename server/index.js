@@ -55,9 +55,9 @@ app.use(express.json());
 
 // 상품 등록
 app.post("/api/products", (req, res)=>{
-    const {productName, price} = req.body; // 요청한 속성 데이터
-    const sql = "INSERT INTO product(product_name, price) VALUES(?, ?)" //? : 동적 기호
-    db.query(sql, [productName, price], (err, results)=>{
+    const {productName, price, description} = req.body; // 요청한 속성 데이터
+    const sql = "INSERT INTO product(product_name, price, description) VALUES (?, ?, ?)" //? : 동적 기호
+    db.query(sql, [productName, price, description], (err)=>{
         if(err){
             console.log("상품 등록 오류", err);
             res.send("상품 등록 중 오류가 발생하였습니다.");
