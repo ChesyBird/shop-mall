@@ -34,6 +34,12 @@
 }
 
 /* 상품 목록 스타일 */
+.product-list .search-bar input{
+    width: 50%;
+    padding: 10px 12px;
+    border: 1px solid #a8a8a8;
+    border-radius: 10px;
+}
 .product-list table {
     width: 60%;
     margin: 20px auto;
@@ -69,6 +75,7 @@
 .product-info button {
     padding: 8px 12px;
     cursor: pointer;
+    margin: 5px;
 }
 
 /* 상품 등록 스타일 */
@@ -90,6 +97,30 @@
     resize: vertical; /* 크기조절방향(수직) */
 }
 .add-product form button {
+    padding: 8px 12px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+/* 상품 수정 스타일 */
+.update-product form {
+    width: 30%;
+    margin: 20px auto;
+}
+.update-product form label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+.update-product form input, .update-product form textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 16px;
+}
+.update-product form textarea {
+    resize: vertical; /* 크기조절방향(수직) */
+}
+.update-product form button {
     padding: 8px 12px;
     cursor: pointer;
     margin: 4px;

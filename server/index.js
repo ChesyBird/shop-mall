@@ -42,7 +42,7 @@ app.get("/api/products", (req, res)=>{
     const sql = "SELECT * FROM product";
     db.query(sql, (err, results)=>{
         if(err){
-            console.log("상품 조회 오류", err);
+            console.log("상품 조회 오류 : ", err);
             res.send("상품 조회 중 오류가 발생하였습니다.");
             return;
         }
@@ -59,7 +59,7 @@ app.post("/api/products", (req, res)=>{
     const sql = "INSERT INTO product(product_name, price, description) VALUES (?, ?, ?)" //? : 동적 기호
     db.query(sql, [productName, price, description], (err)=>{
         if(err){
-            console.log("상품 등록 오류", err);
+            console.log("상품 등록 오류 : ", err);
             res.send("상품 등록 중 오류가 발생하였습니다.");
             return;
         }
@@ -75,7 +75,7 @@ app.get("/api/products/:id", (req,res)=>{
 
     db.query(sql, [productId], (err, results)=>{
         if(err){
-            console.log("상품 조회 에러", err);
+            console.log("상품 조회 에러 : ", err);
             res.send("상품 조회 중 오류가 발생하였습니다.");
             return;            
         }
@@ -89,9 +89,9 @@ app.delete("/api/products/:id", (req, res)=>{
     const productId = req.params.id;
     const sql = "DELETE FROM product WHERE id = ?";
 
-    db.query(sql, [productId], (err, results)=>{
+    db.query(sql, [productId], (err)=>{
         if(err){
-            console.log("상품 삭제 에러", err);
+            console.log("상품 삭제 에러 : ", err);
             res.send("상품 삭제 중 오류가 발생하였습니다.");
             return;            
         }
@@ -104,12 +104,12 @@ app.delete("/api/products/:id", (req, res)=>{
 app.put("/api/products/:id", (req, res)=>{
     // 수정하려면 이미 존재하는 상품(id)을 가져와야함
     const productId = req.params.id;
-    const {productName, price} = req.body; // 수정된 데이터
-    const sql = "UPDATE product SET product_name=?, price=? WHERE id = ?"
+    const {productName, price, description} = req.body; // 수정된 데이터
+    const sql = "UPDATE product SET product_name=?, price=?, description=? WHERE id = ?"
     
-    db.query(sql, [productName, price, productId], (err, results)=>{
+    db.query(sql, [productName, price, description, productId], (err)=>{
         if(err){
-            console.log("상품 수정 에러", err);
+            console.log("상품 수정 에러 : ", err);
             // 500 : 코드오류, 404 : 페이지 없음, 200 : 정상
             res.send("상품 수정 중 오류가 발생하였습니다."); // res.status(501).send()
             return;
@@ -117,6 +117,39 @@ app.put("/api/products/:id", (req, res)=>{
         res.send("상품이 성공적으로 수정되었습니다.");
     })
 })
+
+// 회원 API 개발(REST API)
+// 통신방식(get, post) : 예전 방식
+// REST API : get, post, put, delete
+// 회원 목록
+app.get('/api/users', (req, res)=>{
+    const sql = "SELECT * FROM users"
+
+    db.query(sql, (err, results)=>{
+        if(err){
+            console.log("유저 조회 에러 : ", err);
+            res.send("유저 목록 조회 중 오류가 발생하였습니다.");
+            return;
+        }
+        res.json(results);
+    })
+})
+
+// 회원 가입
+app.post('/api/users', (req, res)=>{
+    const { username, password, email } = req.body; // 요청 본문
+    const sql = "INSERT INTO users(username, password, email) VALUES (?, ?, ?)";
+
+    db.query(sql, [username, password, email], (err)=>{
+        if(err){
+            console.log("회원 가입 에러 : ", err);
+            res.send("회원 가입 중 오류가 발생하였습니다.");
+            return;
+        }
+        res.send("회원이 성공적으로 가입되었습니다.")
+    })
+})
+
 
 // 서버 실행
 app.listen(PORT, ()=>{

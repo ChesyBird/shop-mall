@@ -5,6 +5,7 @@ import Main from './layouts/Main';
 import ProductList from './products/ProductList';
 import ProductInfo from './products/ProductInfo';
 import AddProduct from './products/AddProduct';
+import UpdateProduct from './products/UpdateProduct';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path='/products' element={<ProductList />} />
             <Route path='/products/:id' element={<ProductInfo />} />
             <Route path='/products/new' element={<AddProduct />} />
+            <Route path='/products/update/:id' element={<UpdateProduct />} />
           </Routes>
           </div>
         </BrowserRouter>
