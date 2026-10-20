@@ -150,6 +150,21 @@ app.post('/api/users', (req, res)=>{
     })
 })
 
+// 회원 조회(로그인)
+app.get("/api/users/:username", (req,res)=>{
+    const username = req.params.username; // 요청한 아이디
+    const sql = "SELECT * FROM users WHERE username = ?";
+
+    db.query(sql, [username], (err, results) => {
+        if(err){
+            console.log("회원 조회 에러 : ", err);
+            res.send("회원 조회 중 오류가 발생하였습니다.");
+            return;
+        }
+        res.json(results[0]); // 요청한 곳으로 반환(응답)
+    });
+})
+
 
 // 서버 실행
 app.listen(PORT, ()=>{
